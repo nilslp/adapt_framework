@@ -1,0 +1,11 @@
+// Focus styling
+// =================
+
+.focused,
+*:focus,
+input:focus + label {
+    outline-style: none;
+    .accessibility.no-touch & {
+        outline: @focus-outline;
+    }
+}

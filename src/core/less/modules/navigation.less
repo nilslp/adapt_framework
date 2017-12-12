@@ -1,0 +1,31 @@
+// Navigation styling
+// ==================
+
+.navigation {
+    position:fixed;
+    top:0;
+    z-index:500;
+    width: 100%;
+    max-width: @max-width;
+    overflow: hidden;
+    background-color: @navigation-color;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    height: (@navigation-padding * 2) + @icon-size;
+    .ie8-max-width;
+
+    .navigation-back-button {
+        .float-left;
+    }
+
+    .navigation-drawer-toggle-button {
+        .float-right;
+    }
+
+    .icon {
+        padding: @navigation-padding;
+        color: @navigation-icon-color;
+        .no-touch &:hover {
+            color: @navigation-icon-color-hover;
+        }
+    }
+}

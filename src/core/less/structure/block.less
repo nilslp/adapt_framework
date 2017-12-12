@@ -1,0 +1,29 @@
+// Block styling
+// =============
+
+.block {
+    position: relative;
+    background-color: @block-background-color;
+
+    .block-inner {
+        max-width: @device-width-large;
+        margin: auto;
+        padding: @block-padding-all;
+    }
+
+    .block-title {
+        margin-bottom: @block-title-margin-bottom;
+        color: @title-color;
+        .text-align-left;
+    }
+
+    .block-body{
+        margin-bottom: @block-body-margin-bottom;
+    }
+
+    .block-instruction {
+        margin-bottom: @block-instruction-margin-bottom;
+        font-weight: @instruction-text-font-weight;
+    }
+
+}

@@ -1,0 +1,138 @@
+// IMPORTANT - THESE ARE THE DEFAULT VARIABLES / LESS FOR COMPATIBILITY WITH ADAPT OPEN SOURCE WHILST THEME IS IN WORKING PROCESS
+
+// =========
+// Variables
+// =========
+
+// Validation Error color
+// ======================
+@validation-error-border-color: @validation-error; // text input
+
+// ==========
+// Item setup
+// ==========
+
+// Item color
+// ==========
+
+ @item-hover-color: #212121;
+ @item-disabled-color: #727272;
+ @item-text-disabled-color: #ccc;
+
+// Item padding
+// ============
+@item-padding: 20px;
+
+// Button
+// ======
+@button-hover-color: #212121;
+@button-disabled-color: #727272;
+@button-text-hover-color: #fff;
+@button-text-disabled-color: #ccc;
+@button-padding: 14px;
+
+// ==============
+// Global spacing
+// ==============
+
+// Title paddings
+// ==============
+
+@menu-title-padding-top: 30px;
+@menu-title-padding-sides: 30px;
+@menu-title-padding-bottom: 30px;
+
+// Title margins
+// =============
+@title-text-margin: 20px;
+
+// Body paddings
+// =============
+
+@menu-body-padding-top: 30px;
+@menu-body-padding-sides: 30px;
+@menu-body-padding-bottom: 0px;
+
+@menu-body-padding: @menu-body-padding-top @menu-body-padding-sides @menu-body-padding-bottom;
+
+//component padding
+//==================
+
+@component-padding: 20px;
+
+// Navigation
+// ==========
+
+@navigation-border-width: 1px;
+@navigation-border-style: solid;
+@navigation-border-color: darken(@navigation-color, 10%);
+
+@navigation-height: 60px;
+@navigation-height-mobile: 50px;
+@navigation-padding: ((@navigation-height - @icon-size)/2);
+@navigation-padding-mobile: ((@navigation-height-mobile - @icon-size)/2);
+
+
+// Drawer
+// ======
+
+@drawer-item-hover-color: darken(@drawer-item-color, 10%);
+@drawer-item-text-hover-color: #fff;
+
+@drawer-item-padding-top: 10px;
+@drawer-item-padding-right: 10px;
+@drawer-item-padding-bottom: 10px;
+@drawer-item-padding-left: 10px;
+
+@drawer-item-padding: @drawer-item-padding-top @drawer-item-padding-right @drawer-item-padding-bottom @drawer-item-padding-left;
+
+// // Icons
+// // =====
+
+@icon-correct-color: @validation-success;
+@icon-incorrect-color: @validation-error;
+
+//=============
+// Main Colors
+// ===========
+
+@primary-color: #474747;
+@primary-color-inverted: #f5f5f5;
+@secondary-color: #212121;
+@secondary-color-inverted: #f5f5f5;
+@tertiary-color: #f5f5f5;
+@tertiary-color-inverted: #212121;
+@quaternary-color: #212121;
+@quaternary-color-inverted: #f5f5f5;
+
+
+// =================
+// Responsive Widths
+// =================
+
+.responsive-large {
+    @media all and (min-width:@device-width-large) {
+        width:@device-width-large;
+        margin:0 auto;
+    }
+}
+
+.responsive-medium {
+    @media all and (max-width:@device-width-medium) and (min-width:(@device-width-small)) {
+        width:@device-width-small;
+        margin:0 auto;
+    }
+}
+
+.responsive-small {
+    @media all and (max-width:(@device-width-small - 1px)) {
+        width:100%;
+        margin:0 auto;
+    }
+}
+
+.responsive-layout {
+    .responsive-large;
+    .responsive-medium;
+    .responsive-small;
+}

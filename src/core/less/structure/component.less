@@ -1,0 +1,74 @@
+// Component styling
+// =================
+
+.component-container{
+    zoom: 1;
+    &:before, &:after{
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+    }
+    &:after{
+      clear: both;
+    }
+}
+
+.component {
+  position:relative;
+
+  &.component-left {
+      width:100%;
+      float:none;
+      @media all and (min-width:(@device-width-medium + 1px)) {
+          width:50%;
+          float:left;
+          .component-inner {
+              margin-right:5%;
+          }
+      }
+  }
+
+  &.component-right {
+      width:100%;
+      float:none;
+      @media all and (min-width:(@device-width-medium + 1px)) {
+          width:50%;
+          float:right;
+          .component-inner {
+              margin-left:5%;
+          }
+      }
+  }
+
+    .component-inner {
+        background-color: @component-background-color;
+        padding: @component-padding-all;
+    }
+
+    .component-title{
+        margin-bottom: @component-title-margin-bottom;
+        color: @title-color;
+        .text-align-left;
+    }
+
+    .component-body{
+        margin: @component-body-margin-all;
+
+        a {
+          text-decoration: underline;
+          color: @font-color;
+        }
+    }
+
+    .component-instruction {
+        margin-bottom: @component-instruction-margin-bottom;
+        font-weight: @instruction-text-font-weight;
+    }
+
+    .component-instruction-inner {
+        &.validation-error {
+            color: @validation-error;
+        }
+    }
+}
