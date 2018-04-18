@@ -1,7 +1,7 @@
 {
   "name": "adapt_framework",
   "version": "3.0.0",
-  "description": "Adapt Learning output framework",
+  "description": "A toolkit for creating responsive, single-version HTML5 eLearning courses.",
   "homepage": "https://www.adaptlearning.org",
   "repository": {
     "type": "git",
