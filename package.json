@@ -39,7 +39,7 @@
     "Thomas Berger <thomas.berger@learnchamp.com>",
     "Thomas Eitler <thomas.eitler@learnchamp.com>",
     "Thomas Taylor <hello@tomtaylor.name>",
-    "Tom Greenfield <tom.greenfield@kineo.com>",
+    "Tom Greenfield <tom.greenfield@kineo.com>"
   ],
   "dependencies": {
     "async": "^1.5.2",
