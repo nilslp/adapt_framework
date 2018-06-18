@@ -466,8 +466,8 @@ define([
             if ($found && $found.length) return $found;
 
             // move through parents towards the body element
-            var $branch = this.add(this.parents()).toArray().reverse();
-            _.find($branch, function(parent) {
+            var branch = this.add(this.parents()).toArray().reverse();
+            _.find(branch, function(parent) {
                 var $parent = $(parent);
                 if (iterator($parent) === false) {
                     // skip this parent if explicitly instructed
@@ -475,8 +475,8 @@ define([
                 }
 
                 // move through parents nextAll siblings
-                var $siblings = $parent.nextAll().toArray();
-                return _.find($siblings, function(sibling) {
+                var siblings = $parent.nextAll().toArray();
+                return _.find(siblings, function(sibling) {
                     var $sibling = $(sibling);
                     var value = iterator($sibling);
 
@@ -553,8 +553,8 @@ define([
                 }
 
                 // get i stack children
-                var $children = $stackItem.children().toArray();
-                _.find($children, function(item) {
+                var children = $stackItem.children().toArray();
+                _.find(children, function(item) {
                     var $item = $(item);
                     var value = iterator($item);
 
@@ -589,8 +589,9 @@ define([
             var $branch =  checkParents
                 ? $firstItem.add($firstItem.parents())
                 : $firstItem;
+            var branch = $branch.toArray();
 
-            var isNotVisible = _.find($branch.toArray(), function(item) {
+            var isNotVisible = _.find(branch, function(item) {
                 var $item = $(item);
                 // make sure item is not explicitly invisible
                 var isNotVisible = $item.css('display') === "none"
