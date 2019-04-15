@@ -1,7 +1,7 @@
 define([
   'core/js/adapt',
   'core/js/enums/completionStateEnum'
-], function(Adapt, COMPLETION_STATE) {
+], function (Adapt, COMPLETION_STATE) {
 
   var Tracking = Backbone.Controller.extend({
 
@@ -12,15 +12,18 @@ define([
 
     _assessmentState: null,
 
-    initialize: function() {
-      Adapt.once('configModel:loadCourseData', this.loadConfig.bind(this));
+    initialize: function () {
+      Adapt.once('configModel:dataLoaded', this.loadConfig.bind(this));
       Adapt.on('app:dataReady', this.setupEventListeners.bind(this));
     },
 
-    setupEventListeners: function() {
+    setupEventListeners: function () {
       // Check if completion requires passing an assessment. 
       if (this._config._requireAssessmentCompleted) {
-        this.listenTo(Adapt, 'assessment:complete', this.onAssessmentComplete);
+        this.listenTo(Adapt, {
+          'assessment:complete': this.onAssessmentComplete,
+          'assessment:restored': this.onAssessmentRestored
+        });
       }
 
       // Check if completion requires completing all content.
@@ -33,16 +36,24 @@ define([
      * Store the assessment state.
      * @param {object} assessmentState - The object returned by Adapt.assessment.getState()
      */
-    onAssessmentComplete: function(assessmentState) {
+    onAssessmentComplete: function (assessmentState) {
       this._assessmentState = assessmentState;
 
       this.checkCompletion();
     },
 
     /**
+     * Restores the _assessmentState object when an assessment is registered.
+     * @param {object} assessmentState - An object representing the overall assessment state
+     */
+    onAssessmentRestored: function (assessmentState) {
+      this._assessmentState = assessmentState;
+    },
+
+    /**
      * Evaluate the course and assessment completion.
      */
-    checkCompletion: function() {
+    checkCompletion: function () {
       var completionData = this.getCompletionData();
 
       if (completionData.status === COMPLETION_STATE.INCOMPLETE) {
@@ -57,7 +68,7 @@ define([
      * The return value of this function should be passed to the trigger of 'tracking:complete'.
      * @returns An object representing the user's course completion.
      */
-    getCompletionData: function() {
+    getCompletionData: function () {
       var completionData = {
         status: COMPLETION_STATE.INCOMPLETE,
         assessment: null
@@ -92,7 +103,7 @@ define([
     /**
      * Set the _config object to the values retrieved from config.json.
      */
-    loadConfig: function() {
+    loadConfig: function () {
       if (Adapt.config.has('_completionCriteria')) {
         this._config = Adapt.config.get('_completionCriteria');
       }
